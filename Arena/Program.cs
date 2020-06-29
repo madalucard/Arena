@@ -26,6 +26,7 @@ namespace Arena
                 Console.Write(desatStenna.Hod() + " ");
             }
             */
+
             // vytvorenie bojovnika
             Bojovnik bojovnik1 = new Bojovnik("Martin",100,15,17,desatStenna);
             Console.WriteLine("Bojovnik: " + bojovnik1);  // test ToString();

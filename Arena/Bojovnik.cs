@@ -80,6 +80,29 @@ namespace Arena
             s += "]";            
             return s;
         }
+        /// <summary>
+        /// Vypocita nam realne poskodenie pri utoku
+        /// </summary>
+        /// <param name="uder"></param>
+        public void BranSa(int uder)
+        {
+            int zranenie = uder - (obrana + kocka.Hod());
+            if (zranenie > 0)
+            {
+                zivot -= zranenie;
+                if (zivot <= 0)
+                    zivot = 0;
+            }
+        }
+        /// <summary>
+        /// Vypocita nam celkovu vysku utoku a zautoci na supera
+        /// </summary>
+        /// <param name="super"></param>
+        public void Utok(Bojovnik super)
+        {
+            int uder = utok + kocka.Hod();
+            super.BranSa(uder);
+        }
 
 
 
