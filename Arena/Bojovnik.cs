@@ -59,7 +59,7 @@ namespace Arena
         /// Vrati nam bool hodnotu bojovnikovho stavu
         /// </summary>
         /// <returns>True/False</returns>
-        public bool nazivo()
+        public bool Nazivo()
         {
             return (zivot > 0);
         }
@@ -67,12 +67,12 @@ namespace Arena
         /// Vrati nam zivot v grafickom prevedeni 20 dielov
         /// </summary>
         /// <returns>Graficky zivot</returns>
-        public string grafickyZivot()
+        public string GrafickyZivot()
         {
             string s = "[";
             int celkom = 20;
             double pocet = Math.Round(((double)zivot / maxZivot) * celkom);
-            if ((pocet == 0) && (nazivo()))
+            if ((pocet == 0) && (Nazivo()))
                 pocet = 1;
             for (int i = 0; i < pocet; i++)
                 s += "#";
