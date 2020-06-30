@@ -38,7 +38,7 @@ namespace Arena
         {
             Console.Clear();
             Console.WriteLine("---------------Arena---------------\n");
-            Console.WriteLine("Zdravie bojovnikov \n");
+            Console.WriteLine("Zdravie bojovnikov:\n");
             Console.WriteLine("{0} {1}", bojovnik1, bojovnik1.GrafickyZivot());
             Console.WriteLine("{0} {1}", bojovnik2, bojovnik2.GrafickyZivot());
         }
@@ -54,23 +54,40 @@ namespace Arena
 
         public void Zapas()
         {
+            // deklaracia bojovnikov
+            Bojovnik b1 = bojovnik1;
+            Bojovnik b2 = bojovnik2;
+            // volba prveho utoku
+            bool prvyUtociB2 = (kocka.Hod() <= kocka.VratPocetStien() / 2);
+            // v pripade ak zacina bojovnik2, len prehodi doklaraciu bojovnikov
+            if (prvyUtociB2)
+            {
+                b1 = bojovnik2;
+                b2 = bojovnik1;
+            }
+
             Console.WriteLine("Vitajte v Arene!");
             Console.WriteLine("V zapase sa stretne {0} s {1}.", bojovnik1, bojovnik2);
-            Console.WriteLine("Zapas moze zacat...");
+            Console.WriteLine("Zacinat bude {0}.Zapas moze zacat...",b1);
+            Console.ReadKey();
 
             // Bojovy cyklus
-            while (bojovnik1.Nazivo() && bojovnik2.Nazivo())
+            while (b1.Nazivo() && b2.Nazivo())
             {
-                bojovnik1.Utok(bojovnik2);
+                b1.Utok(b2);
                 Vykresli();
-                VypisSpravu(bojovnik1.VratPosleduSpravu()); // sprava o utoku
-                VypisSpravu(bojovnik2.VratPosleduSpravu()); // sprava o obrane
-
-                bojovnik2.Utok(bojovnik1);
-                Vykresli();
-                VypisSpravu(bojovnik2.VratPosleduSpravu()); // sprava o utoku
-                VypisSpravu(bojovnik1.VratPosleduSpravu()); // sprava o obrane
+                VypisSpravu(b1.VratPosleduSpravu()); // sprava o utoku
+                VypisSpravu(b2.VratPosleduSpravu()); // sprava o obrane
+                Console.ReadKey();
+                if (b2.Nazivo()) // kontrola ci je bojovnik nazivo po predchadzajucom utoku.
+                {
+                    bojovnik2.Utok(bojovnik1);
+                    Vykresli();
+                    VypisSpravu(bojovnik2.VratPosleduSpravu()); // sprava o utoku
+                    VypisSpravu(bojovnik1.VratPosleduSpravu()); // sprava o obrane
+                }
                 Console.WriteLine();
+                Console.ReadKey();
             }
 
         }

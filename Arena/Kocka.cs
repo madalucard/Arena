@@ -36,7 +36,7 @@ namespace Arena
         /// Vrati pocet stien kocky
         /// </summary>
         /// <returns>Pocet stien kocky</returns>
-        public int GetPocetStien() {
+        public int VratPocetStien() {
             return pocetStien;
         }
         /// <summary>
