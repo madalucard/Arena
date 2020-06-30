@@ -6,6 +6,7 @@ namespace Arena
 {
     class Bojovnik
     {
+        #region atributy
         /// <summary>
         /// Meno bojovnika
         /// </summary>
@@ -30,6 +31,10 @@ namespace Arena
         /// Instancia hracej kocky
         /// </summary>
         private Kocka kocka;
+        private string sprava;
+        #endregion
+
+        #region metody
         /// <summary>
         /// Konstruktor bojvnika
         /// </summary>
@@ -90,6 +95,7 @@ namespace Arena
             if (zranenie > 0)
             {
                 zivot -= zranenie;
+                sprava = String.Format("{0} utrpel poskodenie {1} hp.",meno, zranenie);
                 if (zivot <= 0)
                     zivot = 0;
             }
@@ -101,12 +107,28 @@ namespace Arena
         public void Utok(Bojovnik super)
         {
             int uder = utok + kocka.Hod();
+            NastavSpravu(String.Format("{0} utoci s uderom za {1} hp", meno, uder));
             super.BranSa(uder);
+        }
+        /// <summary>
+        /// Nastavi na, spravu
+        /// </summary>
+        /// <param name="sprava"></param>
+        private void NastavSpravu(string sprava)
+        {
+            this.sprava = sprava;
+        }
+        /// <summary>
+        /// Vrati nam poslednu spravu
+        /// </summary>
+        /// <returns>String sprava</returns>
+        public string VratPosleduSpravu()
+        {
+            return sprava;
         }
 
 
-
-
+        #endregion
 
 
     }
