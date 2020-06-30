@@ -33,15 +33,20 @@ namespace Arena
             Console.WriteLine("Nazivo: " + bojovnik.Nazivo());  // test Nazivo();
             Console.WriteLine("Zivot: " + bojovnik.GrafickyZivot()); // test GrafickyZivot();
             Console.WriteLine();
+
             // vytvorenie supera
             Bojovnik super = new Bojovnik("Clone", 70, 17, 13, desatStenna);
             Console.WriteLine("Bojovnik: " + super);  // test ToString();
             Console.WriteLine("Nazivo: " + super.Nazivo());  // test Nazivo();
             Console.WriteLine("Zivot: " + super.GrafickyZivot()); // test GrafickyZivot();
             Console.WriteLine();
+
             // test utok na bojovnika
             super.Utok(bojovnik);
-            Console.WriteLine("Zivot po utoku " + super.ToString() + " na " + bojovnik.ToString() + ": " + bojovnik.GrafickyZivot());
+            Console.WriteLine(super.VratPosleduSpravu());
+            Console.WriteLine(bojovnik.VratPosleduSpravu());
+            Console.WriteLine("Zivot Martin: {0}", bojovnik.GrafickyZivot());
+            Console.WriteLine("Zivot Super: {0}", super.GrafickyZivot());
 
 
 
