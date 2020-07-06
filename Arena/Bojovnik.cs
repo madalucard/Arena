@@ -10,31 +10,34 @@ namespace Arena
         /// <summary>
         /// Meno bojovnika
         /// </summary>
-        private string meno;
+        protected string meno;
         /// <summary>
         /// Max života bojovnika
         /// </summary>
-        private int maxZivot;
+        protected int maxZivot;
         /// <summary>
         /// Aktualne životy bojovnika
         /// </summary>
-        private int zivot;
+        protected int zivot;
         /// <summary>
         /// Utok bojovnika v Hp
         /// </summary>
-        private int utok;
+        protected int utok;
         /// <summary>
         /// Obranna bojovnika v Hp
         /// </summary>
-        private int obrana;
+        protected int obrana;
         /// <summary>
         /// Instancia hracej kocky
         /// </summary>
-        private Kocka kocka;
+        protected Kocka kocka;
         private string sprava;
         #endregion
 
         #region metody
+        public Bojovnik() 
+        {
+        }
         /// <summary>
         /// Konstruktor bojvnika
         /// </summary>
