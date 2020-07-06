@@ -57,6 +57,7 @@ namespace Arena
             // deklaracia bojovnikov
             Bojovnik b1 = bojovnik1;
             Bojovnik b2 = bojovnik2;
+
             // volba prveho utoku
             bool prvyUtociB2 = (kocka.Hod() <= kocka.VratPocetStien() / 2);
             // v pripade ak zacina bojovnik2, len prehodi doklaraciu bojovnikov
@@ -81,14 +82,29 @@ namespace Arena
                 Console.ReadKey();
                 if (b2.Nazivo()) // kontrola ci je bojovnik nazivo po predchadzajucom utoku.
                 {
-                    bojovnik2.Utok(bojovnik1);
+                    b2.Utok(b1);
                     Vykresli();
-                    VypisSpravu(bojovnik2.VratPosleduSpravu()); // sprava o utoku
-                    VypisSpravu(bojovnik1.VratPosleduSpravu()); // sprava o obrane
+                    VypisSpravu(b2.VratPosleduSpravu()); // sprava o utoku
+                    VypisSpravu(b1.VratPosleduSpravu()); // sprava o obrane
                 }
                 Console.WriteLine();
                 Console.ReadKey();
             }
+            if (b1.Nazivo())
+            {
+                Console.WriteLine("{0} porazil {1}...", b1, b2);
+                Console.WriteLine("Hail to the {0}!", b1);
+                Console.WriteLine("HAIL!!!");
+            }
+            else
+            {
+                Console.WriteLine("{0} porazil {1}...", b2, b1);
+                Thread.Sleep(500);
+                Console.WriteLine("Hail to the {0}!", b2);
+                Thread.Sleep(750);
+                Console.WriteLine("HAIL!!!");
+            }
+                
 
         }
 

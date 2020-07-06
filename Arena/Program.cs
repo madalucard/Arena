@@ -48,8 +48,15 @@ namespace Arena
             //Console.WriteLine("Zivot Martin: {0}", bojovnik.GrafickyZivot());
             //Console.WriteLine("Zivot Super: {0}", super.GrafickyZivot());
 
+            // vytvorenie maga
+            Bojovnik carodej = new Mag("Gandalf", 60, 15, 12, desatStenna, 30, 45);
+            
+
+
+
+
             // vytvorenie areny
-            Arena arena = new Arena(bojovnik,super,desatStenna);
+            Arena arena = new Arena(bojovnik,carodej,desatStenna);
 
             // zapas
             arena.Zapas();

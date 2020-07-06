@@ -107,7 +107,7 @@ namespace Arena
         /// Vypocita nam celkovu vysku utoku a zautoci na supera
         /// </summary>
         /// <param name="super"></param>
-        public void Utok(Bojovnik super)
+        public virtual void Utok(Bojovnik super)
         {
             int uder = utok + kocka.Hod();
             NastavSpravu(String.Format("{0} utoci s uderom za {1} hp", meno, uder));
@@ -117,7 +117,7 @@ namespace Arena
         /// Nastavi na, spravu
         /// </summary>
         /// <param name="sprava"></param>
-        private void NastavSpravu(string sprava)
+        protected void NastavSpravu(string sprava)
         {
             this.sprava = sprava;
         }
